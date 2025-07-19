@@ -94,6 +94,8 @@
 
 	data["admins"] = length(presentmins) + length(afkmins)
 
+	data["admins"] = length(presentmins) + length(afkmins)
+
 	statuscode = 200
 	response = "Status retrieved"
 
@@ -568,3 +570,25 @@ GLOBAL_LIST_EMPTY(bot_asay_sending_que)
 
 	statuscode = 200
 	response = "Events received."
+
+/datum/world_topic/whois
+	key = "whoIs"
+
+/datum/world_topic/whois/Run(list/input)
+	. = list()
+	.["players"] = GLOB.clients
+
+	return list2params(.)
+
+/datum/world_topic/getadmins
+	key = "getAdmins"
+
+/datum/world_topic/getadmins/Run(list/input)
+	. = list()
+	var/list/adm = get_admin_counts()
+	var/list/presentmins = adm["present"]
+	var/list/afkmins = adm["afk"]
+	.["admins"] = presentmins
+	.["admins"] += afkmins
+
+	return list2params(.)
