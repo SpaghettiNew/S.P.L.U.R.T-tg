@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(autotransfer)
 	if(maxvotes == NO_MAXVOTES_CAP || maxvotes > curvotes)
 		priority_announce("Внимание, экипаж [station_name()]. Стандартная смена длительностью в неделю \
 		уже закончена. Воспользуйтесь своим КПК, если вы желаете продлить её.", null, ANNOUNCER_NRI_RAIDERS, "Nanotrasen") // MOON ADD
-		SSvote.initiate_vote(/datum/vote/transfer_vote, "automatic transfer", forced = TRUE)
+		SSvote.initiate_vote(/datum/vote/transfer_vote, "automatic transfer")
 		targettime = targettime + voteinterval
 		curvotes++
 	else

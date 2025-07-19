@@ -6,4 +6,5 @@ SUBSYSTEM_DEF(supporters)
 
 /datum/controller/subsystem/supporters/Initialize()
 	load_supporters_from_db()
+	load_griefers_from_db()
 	return SS_INIT_SUCCESS

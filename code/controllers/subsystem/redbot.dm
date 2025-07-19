@@ -6,16 +6,15 @@ SUBSYSTEM_DEF(redbot)
 	var/comms_key = CONFIG_GET(string/comms_key)
 	var/bot_ip = CONFIG_GET(string/bot_ip)
 	var/round_id = GLOB.round_id
-	if(config && bot_ip)
+	if(bot_ip)
 		var/query = "http://[bot_ip]/?serverStart=1&roundID=[round_id]&key=[comms_key]"
 		world.Export(query)
 
-	. = ..()
-	return TRUE
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/redbot/proc/send_discord_message(var/channel, var/message, var/priority_type)
 	var/bot_ip = CONFIG_GET(string/bot_ip)
-	if(!config || !bot_ip)
+	if(!bot_ip)
 		return
 
 	var/list/data = list()

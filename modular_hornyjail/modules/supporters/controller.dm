@@ -3,6 +3,9 @@
 GLOBAL_LIST_EMPTY(supporter_list)
 GLOBAL_PROTECT(supporter_list)
 
+GLOBAL_LIST_EMPTY(griefer_list)
+GLOBAL_PROTECT(griefer_list)
+
 /proc/load_supporters_from_db()
 	var/datum/db_query/query = SSdbcore.NewQuery(
 		"SELECT ckey, supporter_tier FROM [format_table_name(PLAYER_RANK_TABLE_NAME)] WHERE supporter_tier > 0"
@@ -20,3 +23,22 @@ GLOBAL_PROTECT(supporter_list)
 
 	qdel(query)
 	log_world("✅ Загружено донатеров: [length(GLOB.supporter_list)]")
+
+
+/proc/load_griefers_from_db()
+	var/datum/db_query/query = SSdbcore.NewQuery(
+		"SELECT ckey, is_griefer FROM [format_table_name(PLAYER_RANK_TABLE_NAME)] WHERE is_griefer != 0"
+	)
+	if(!query.warn_execute())
+		qdel(query)
+		log_world("❌ Не удалось загрузить набегаторов.")
+		return
+
+	while(query.NextRow())
+		var/ckey = lowertext(query.item[1])
+		var/bool = text2num(query.item[2])
+		if(isnum(bool) && bool > 0)
+			GLOB.griefer_list[ckey] += bool
+
+	qdel(query)
+	log_world("✅ Загружено набегаторов: [length(GLOB.griefer_list)]")

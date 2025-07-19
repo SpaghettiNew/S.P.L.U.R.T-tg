@@ -7,14 +7,14 @@
 	#define BODY_SIZE_MAX BODY_SIZE_MAX_OVERRIDE
 	#undef BODY_SIZE_MAX_OVERRIDE
 #else
-	#define BODY_SIZE_MAX 2.0
+	#define BODY_SIZE_MAX 1.5
 #endif
 
 #ifdef BODY_SIZE_MIN_OVERRIDE
 	#define BODY_SIZE_MIN BODY_SIZE_MIN_OVERRIDE
 	#undef BODY_SIZE_MIN_OVERRIDE
 #else
-	#define BODY_SIZE_MIN 0.1
+	#define BODY_SIZE_MIN 0.9
 #endif
 
 //genitals
