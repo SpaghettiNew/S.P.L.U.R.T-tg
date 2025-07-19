@@ -13,20 +13,12 @@
 	CONFIG_SET(flag/allow_vote_transfer, !CONFIG_GET(flag/allow_vote_transfer))
 
 /datum/vote/transfer_vote/is_config_enabled()
-	return CONFIG_GET(flag/autotransfer) && CONFIG_GET(flag/allow_vote_transfer)
+	return CONFIG_GET(flag/allow_vote_transfer)
 
-/datum/vote/transfer_vote/can_be_initiated(forced)
+/datum/vote/tranfer_vote/create_vote(mob/vote_creator)
 	. = ..()
-	if(. != VOTE_AVAILABLE)
-		return .
-
-	if(forced)
-		return VOTE_AVAILABLE
-
-	if(!CONFIG_GET(flag/autotransfer) || !CONFIG_GET(flag/allow_vote_transfer))
-		return "Transfer voting is disabled."
-
-	return VOTE_AVAILABLE
+	if(!.)
+		return
 
 /datum/vote/transfer_vote/finalize_vote(winning_option)
 	if(winning_option == CHOICE_CONTINUE)

@@ -39,13 +39,6 @@
 	tgui_alert(vote_creator, "Note: Regardless of the results of this vote, \
 		the round will not automatically restart because an active admin is online.")
 
-/datum/vote/restart_vote/get_vote_result(list/non_voters)
-	if(!CONFIG_GET(flag/default_no_vote))
-		// Default no votes will add non-voters to "Continue Playing"
-		choices[CHOICE_CONTINUE] += length(non_voters)
-
-	return ..()
-
 /datum/vote/restart_vote/finalize_vote(winning_option)
 	if(winning_option == CHOICE_CONTINUE)
 		return
