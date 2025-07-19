@@ -1,2 +1,2 @@
-/datum/vote/storyteller
-	display_statistics = TRUE
+///datum/vote/storyteller
+//	display_statistics = TRUE

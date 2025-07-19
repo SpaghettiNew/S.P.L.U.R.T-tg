@@ -690,8 +690,8 @@ SUBSYSTEM_DEF(gamemode)
 	for(var/storyteller_type in storytellers)
 		var/datum/storyteller/storyboy = storytellers[storyteller_type]
 		/// Prevent repeating storytellers
-		if(storyboy.storyteller_type && storyboy.storyteller_type == SSpersistence.last_storyteller_type)
-			continue
+//		if(storyboy.storyteller_type && storyboy.storyteller_type == SSpersistence.last_storyteller_type)
+//			continue
 		if(!storyboy.votable)
 			continue
 		if((storyboy.population_min && storyboy.population_min > client_amount) || (storyboy.population_max && storyboy.population_max < client_amount))
@@ -703,6 +703,7 @@ SUBSYSTEM_DEF(gamemode)
 		vote_message += ""
 	var/finalized_message = "[vote_message.Join("\n")]"
 	to_chat(world, vote_font(fieldset_block("Storyteller Vote", "[finalized_message]", "boxed_message purple_box")))
+	to_chat(world, vote_font(fieldset_block("Storyteller Vote", "вызван storyteller_vote_choices", "boxed_message purple_box")))
 	return choices
 
 /datum/controller/subsystem/gamemode/proc/storyteller_vote_result(winner_name)

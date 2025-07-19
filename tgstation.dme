@@ -32,8 +32,8 @@
 
 // BEGIN_INCLUDE
 #include "__odlint.dm"
-#include "DMAPI.dm"
 #include "tgs.dm"
+#include "DMAPI.dm"
 #include "_maps\_basemap.dm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
@@ -10518,6 +10518,5 @@
 #include "modular_zzz\modules\void\void.dm"
 #include "modular_hornyjail\modules\supporters\controller.dm"
 #include "code\controllers\subsystem\supporters.dm"
-#include "modular_hornyjail\modules\supporters\admin_menu.dm"
 #include "tgs\includes.dm"
 // END_INCLUDE
