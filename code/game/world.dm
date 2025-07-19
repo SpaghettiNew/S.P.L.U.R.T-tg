@@ -299,10 +299,10 @@ GLOBAL_VAR(restart_counter)
 		response["response"] = "Bad Request - No endpoint specified"
 		return json_encode(response)
 
-	if(!LAZYACCESS(GLOB.topic_tokens["[auth]"], "[query]"))
-		response["statuscode"] = 401
-		response["response"] = "Unauthorized - Bad auth"
-		return json_encode(response)
+	//if(!LAZYACCESS(GLOB.topic_tokens["[auth]"], "[query]"))
+	//	response["statuscode"] = 401
+	//	response["response"] = "Unauthorized - Bad auth"
+	//	return json_encode(response)
 
 	var/datum/world_topic/command = GLOB.topic_commands["[query]"]
 	if(!command)
