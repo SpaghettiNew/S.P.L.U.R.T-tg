@@ -32,8 +32,6 @@
 
 // BEGIN_INCLUDE
 #include "__odlint.dm"
-#include "tgs.dm"
-#include "DMAPI.dm"
 #include "_maps\_basemap.dm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
@@ -266,6 +264,7 @@
 #include "code\__DEFINES\tcg.dm"
 #include "code\__DEFINES\text.dm"
 #include "code\__DEFINES\tgs.config.dm"
+#include "code\__DEFINES\tgs.dm"
 #include "code\__DEFINES\tgui.dm"
 #include "code\__DEFINES\time.dm"
 #include "code\__DEFINES\tools.dm"
@@ -898,7 +897,6 @@
 #include "code\controllers\subsystem\queuelinks.dm"
 #include "code\controllers\subsystem\radiation.dm"
 #include "code\controllers\subsystem\radioactive_nebula.dm"
-#include "code\controllers\subsystem\redbot.dm"
 #include "code\controllers\subsystem\restaurant.dm"
 #include "code\controllers\subsystem\runechat.dm"
 #include "code\controllers\subsystem\security_level.dm"
@@ -931,6 +929,7 @@
 #include "code\controllers\subsystem\vote.dm"
 #include "code\controllers\subsystem\wardrobe.dm"
 #include "code\controllers\subsystem\weather.dm"
+#include "code\controllers\subsystem\redbot.dm"
 #include "code\controllers\subsystem\dynamic\__dynamic_defines.dm"
 #include "code\controllers\subsystem\dynamic\_dynamic_ruleset.dm"
 #include "code\controllers\subsystem\dynamic\_dynamic_tier.dm"
