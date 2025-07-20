@@ -1,5 +1,5 @@
 /datum/storyteller/chill
-	votable = FALSE
+	votable = TRUE
 
 /datum/storyteller/fragile
 	votable = FALSE
