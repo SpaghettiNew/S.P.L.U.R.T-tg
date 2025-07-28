@@ -41,7 +41,7 @@
 
 /// Countdown between lobby and the round starting.
 /datum/config_entry/number/lobby_countdown
-	default = 120
+	default = 480
 	integer = FALSE
 	min_val = 0
 
